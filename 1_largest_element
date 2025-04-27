@@ -1,0 +1,19 @@
+public class ArraysEasy {
+        public static int largestElement(int[] nums) {
+            int n=nums.length;
+           /* Arrays.sort(nums);
+            return nums[n-1];*/
+            int max=Integer.MIN_VALUE;
+            for(int i=0;i<n;i++){
+                    if(nums[i]>max){
+                        max=nums[i];
+                    }
+            }
+            return max;
+        }
+        public static void main(String[] args) {
+            int nums[]={2,5,7,9,1,0};
+            int result=largestElement(nums);
+            System.out.println(result);
+        }
+    }
