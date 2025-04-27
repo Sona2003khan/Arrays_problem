@@ -1,0 +1,32 @@
+import java.util.*;
+public class ArrayEasy9 {
+    public static int[] union_of_arr(int num1[] ,int num2[]){
+        int n=num1.length;
+        int m=num2.length;
+        HashSet<Integer> set=new HashSet<>();
+
+        for(int i=0;i<n;i++){               //add num1 value
+            set.add(num1[i]);
+        }
+
+        for(int j=0;j<m;j++){               //add num2 value
+            if(!set.contains(set)){
+                set.add(num2[j]);
+            }
+        }
+        Integer arr[]=set.toArray(new Integer[0]);       //convert it into integer
+        int ans[]=new int[arr.length];                   //convert into array
+        for(int k=0;k<arr.length;k++){
+            ans[k]=arr[k];
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        int num1[]={1, 2, 3, 4, 5};
+        int num2[]={1,2,7};
+        int result[]=union_of_arr(num1, num2);
+        for(int i=0;i<result.length;i++){
+            System.out.print(result[i]+" ");
+        }
+    }
+}
