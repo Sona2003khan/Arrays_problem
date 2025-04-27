@@ -1,0 +1,19 @@
+public class ArrayEasy8 {
+    public static int linear_search(int nums[] ,int target){
+        int n=nums.length;
+        int ans=-1;
+        for(int i=0;i<n;i++){
+            if(nums[i]==target){
+                ans=i;
+                break;
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args) {
+        int nums[]={2, 3, 4, 5, 3};
+        int target=3;
+        int result=linear_search(nums,target);
+        System.out.println(result);
+    }
+}
