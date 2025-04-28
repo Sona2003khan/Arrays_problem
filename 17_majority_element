@@ -1,0 +1,40 @@
+import java.util.HashMap;
+
+public class ArraysMedium3 {
+    public static int majority_element(int nums[]){
+        /*int n=nums.length;
+        int arr[]=new int[256];
+        int ans=0;
+
+        for(int i=0;i<n;i++){
+            arr[nums[i]]++;
+            if(arr[i] >= n/2){
+                ans=i;
+            }
+        }
+        return ans;*/
+        int n=nums.length;
+        HashMap<Integer ,Integer> map=new HashMap<>();
+        int ans=0;
+
+        for(int i=0;i<n;i++){
+            if(map.containsKey(nums[i])){
+                map.put(nums[i], map.getOrDefault(nums[i],i)+1);
+            }
+            else {
+                map.put(nums[i], 1);
+            }
+            if(map.get(nums[i]) >= n/2){
+                ans=nums[i];
+            }
+        }
+        return ans;
+
+    }
+    public static void main(String[] args) {
+        int nums[]={1, 1, 1, 2, 1, 2};
+       // int nums[]={7, 0, 0, 1, 7, 7, 2, 7, 7};
+        int result = majority_element(nums);
+        System.out.println(result);
+    }
+}
