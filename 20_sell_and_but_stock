@@ -1,0 +1,26 @@
+public class ArrayMedium6 {
+    public static int Best_time_to_buy_and_sell_stock(int nums[]){
+
+        int n=nums.length;
+        int buy_price=nums[0];
+        int profit=0;
+        int profit_max=0;
+
+        for(int i=0;i<n;i++){
+            if(buy_price < nums[i]){
+                profit=nums[i]-buy_price;
+                profit_max = Math.max(profit_max, profit);
+            }
+            else{
+                buy_price=nums[i];
+            }
+        }
+        return profit_max;
+    }
+    public static void main(String[] args) {
+        int nums[]={10, 7, 5, 8, 11, 9};
+     //   int nums[]={0,0,0,0,0,0};
+        int result=Best_time_to_buy_and_sell_stock(nums);
+        System.out.println(result);
+    }
+}
