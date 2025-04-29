@@ -1,0 +1,28 @@
+public class ArrayMedium7 {
+    public static int[] Rearrange_element_by_sign(int nums[]){
+        int n=nums.length;
+        int arr[]=new int[n];
+        int idx=0;
+        int idx2=1;
+
+        for(int i=0;i<n;i++){
+            if(nums[i] >0){
+                arr[idx]=nums[i];
+                idx += 2;
+            }
+            if(nums[i] <0){
+                arr[idx2]=nums[i];
+                idx2 += 2;
+            }
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int nums[]={2, 4, 5, -1, -3, -4 };
+        int result[]=Rearrange_element_by_sign(nums);
+        for(int i=0;i<nums.length;i++){
+            System.out.print(result[i]+" ");
+        }
+    }
+}
