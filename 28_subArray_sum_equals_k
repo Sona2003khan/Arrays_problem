@@ -1,0 +1,29 @@
+public class ArrayMedium8 {
+    public static int subArray_sum_equals_k(int nums[] ,int k){
+        int n=nums.length;
+        int count=0;
+        int prefix_sum[]=new int [n];
+
+        prefix_sum[0]=nums[0];
+        for(int i=1;i<n;i++){
+            prefix_sum[i] =prefix_sum[i-1] + nums[i];
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+              int curr_sum = (i==0) ? prefix_sum[j] : prefix_sum[j]-prefix_sum[i-1];  
+              if(curr_sum==k){
+                count++;
+              }
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int nums[]={1,2,3};
+        int k=3;
+        int result=subArray_sum_equals_k(nums, k);
+        System.out.println(result);
+    }
+}
