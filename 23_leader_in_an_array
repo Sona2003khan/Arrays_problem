@@ -1,0 +1,38 @@
+public class ArrayMedium11 {
+    public static int[] leader_in_an_Array(int nums[]){
+        int n=nums.length;
+        int idx=0;
+        int ans[]=new int[n];
+
+        for(int i=0;i<n;i++){
+            boolean isLeader=true;
+
+            for(int j=i+1;j<n;j++){
+                if(nums[i] < nums[j]){
+                    isLeader=false;
+                }
+            }
+            if(isLeader){
+                ans[idx]=nums[i];                     //ans = [5, 3, 2, 0, 0, 0]
+                idx++;
+            }
+        }
+        int[] results = new int[idx];
+        for (int i = 0; i < idx; i++) {
+            results[i] = ans[i];                          results = [5, 3, 2]
+
+
+        }
+
+        return results;
+       
+    }
+
+    public static void main(String[] args) {
+        int nums[]={1,2,5,3,1,2};
+        int result[]=leader_in_an_Array(nums);
+        for(int i=0;i<result.length;i++){
+            System.out.print(result[i]+" ");
+        }
+    }
+}
