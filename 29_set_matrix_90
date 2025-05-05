@@ -1,0 +1,24 @@
+public class ArrayMedium13 {
+    public static int[][] ninety_degree_rotate_matrix(int nums[][]){
+        int n=nums.length;
+        int m=nums[0].length;
+        int arr[][]=new int[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                arr[j][n-i-1]=nums[i][j];   
+            }
+        }
+        return arr;
+    }
+    public static void main(String[] args) {
+        int nums[][]={{1,2,3},{4,5,6},{7,8,9}};
+        int result[][]=ninety_degree_rotate_matrix(nums);
+        for(int i=0;i<result.length;i++){
+            for(int j=0;j<result[0].length;j++){
+                System.out.print(result[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
