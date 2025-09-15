@@ -20,8 +20,8 @@ public class ArrayHard2 {
     }
     
     /*
-       Time Complexity: O(n^2) in worst case (because list.contains() is O(n) inside a loop of n elements).
-       Space Complexity: O(1) (fixed array of size 257 regardless of input).
+       Time Complexity: O(n)
+   Space Complexity: O(1)
     */
 
 
@@ -40,9 +40,8 @@ public class ArrayHard2 {
     }
     
     /*
-       Time Complexity: O(n^2) in worst case  (same reason: list.contains() inside loop is O(n)).
-                        Average case is closer to O(n) because HashMap operations are O(1).
-       Space Complexity: O(n)  (HashMap can grow to hold all distinct elements).
+       Time Complexity: O(n)
+   Space Complexity: O(n)
     */
 
 
