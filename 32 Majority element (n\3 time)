@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class ArrayHard2 {
+
+    public static List<Integer> majorityElement1(int[] nums) {  // with array to store frequency
+        int n = nums.length;
+        List<Integer> list = new ArrayList<>();
+        int arr[] = new int[256 + 1];
+
+        for (int i = 0; i < n; i++) {
+            arr[nums[i]]++;
+            if (arr[nums[i]] > n/3 && !list.contains(nums[i])) {
+                list.add(nums[i]);
+            }
+        }
+        return list;
+    }
+    
+    /*
+       Time Complexity: O(n^2) in worst case (because list.contains() is O(n) inside a loop of n elements).
+       Space Complexity: O(1) (fixed array of size 257 regardless of input).
+    */
+
+
+    public static List<Integer> majorityElement2(int[] nums) {  // optimized with hashmap to store frequency
+        int n = nums.length;
+        List<Integer> list = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
+            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            if (map.get(nums[i]) > n/3 && !list.contains(nums[i])) {
+                list.add(nums[i]);
+            }
+        }
+        return list;
+    }
+    
+    /*
+       Time Complexity: O(n^2) in worst case  (same reason: list.contains() inside loop is O(n)).
+                        Average case is closer to O(n) because HashMap operations are O(1).
+       Space Complexity: O(n)  (HashMap can grow to hold all distinct elements).
+    */
+
+
+    public static void main(String[] args) {
+        int nums[] = {1, 2, 3, 1, 2, 1};
+
+        System.out.println(majorityElement1(nums));
+        System.out.println(majorityElement2(nums));
+    }
+}
+
+
