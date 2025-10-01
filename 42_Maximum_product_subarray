@@ -1,0 +1,55 @@
+public class ArrayHard11_max_arr_product {
+    public static int maxProduct(int[] nums) {              //optimized
+        int n= nums.length;
+        int max=Integer.MIN_VALUE;
+        int suff=1;
+        int pref=1;
+
+        for(int i=0;i<n;i++){
+            suff = suff * nums[i];
+            pref = pref * nums[n-i-1];
+            max = Math.max(max , suff);
+            max = Math.max(max , pref);
+
+            if(suff == 0){
+                suff=1;
+            }
+            if(pref == 0){
+                pref=1;
+            }
+        }
+        return max;
+    }
+
+    public static int maxProduct2(int[] nums) {
+        int n= nums.length;
+        int max=Integer.MIN_VALUE;
+
+        for(int i=0;i<n;i++){
+            int max_product=1;
+            for(int j=i;j<n;j++){
+                max_product=max_product*nums[j];
+                max=Math.max(max , max_product);
+            }
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int nums[] = {2,3,-2,4};
+        int result = maxProduct(nums);
+        System.out.println(result);
+
+        int result2 = maxProduct2(nums);
+        System.out.println(result);
+    }
+}
+/*
+Method 1: maxProduct (Optimized using prefix and suffix products)
+- Time Complexity (TC): O(n) → single pass through the array
+- Space Complexity (SC): O(1) → only variables max, suff, pref used
+
+Method 2: maxProduct2 (Brute-force nested loops)
+- Time Complexity (TC): O(n^2) → two nested loops over n elements
+- Space Complexity (SC): O(1) → only variables max and max_product used
+*/
